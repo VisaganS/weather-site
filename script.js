@@ -1,58 +1,10 @@
-const apiKey = '&appid=28e9edd8d1cede1c14b31dea008f36f7';
-const units = '&units=metric';
-let city = "Mississauga,";
-let state = 'ON,';
-let countryCode = 'CA';
-let lat;
-let lon;
-let temp;
-let feelsLike;
-let cityLocation;
-let wind;
-let weatherStatus;
-let weatherIcon;
+const apiKey = '8a16feabf21a43341c628d4b6b348f1a';
+let city = "Toronto";
+const myData = axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=Toronto,ON,CA&units=metric&limit=5&appid=${apiKey}`);
+myData.then(result => {
+  console.log(result.data);
+})
 
-//43.6534817
-//-79.3839347
-
-const geoData = axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${city}${state}${countryCode}${apiKey}${units}`);
-geoData.then(result => {
-
-  lat = result.data[0].lat;
-  lon = result.data[0].lon;
-  //console.log(lat, lon);
-
-  const mainData = axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}${apiKey}${units}`);
-  mainData.then(result => {
-    // console.log(result.data);
-    cityLocation = result.data.name;
-    feelsLike = result.data.main.feels_like;
-    wind = result.data.wind.speed * 3.6;
-    weatherStatus = result.data.weather[0].main;
-    weatherIcon = result.data.weather[0].icon;
-    // console.log(weatherIcon);
-
-  }).catch(error => {
-    console.error(error);
-  });
-  
-  const fiveDayData = axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}${apiKey}`);
-  fiveDayData.then(result =>{
-    console.log(result.data);
-  })
-
-}).catch(error => {
-  console.error(error);
-});
-
-
-//poke api
-// const mainData = axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}${apiKey}${units}`);
-// mainData.then(result => {
-//   console.log(result.data);
-// }) .catch (error => {
-//   console.error(error);
-// });
 
 // const jsObj = {name: "Austin", place: "Brazil"};
 

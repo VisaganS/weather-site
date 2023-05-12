@@ -22,6 +22,7 @@ body{
     position: relative;
     display: inline-block;
     padding: 0.5rem;
+    font-weight: 300;
     &__button{
         width: 15.625rem;
         padding: 0.5rem;
@@ -48,6 +49,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+
     &__card{
         background-color: white;
         width: 20rem;
@@ -63,6 +65,13 @@ body{
             font-size: 5rem;
             margin-top: 2rem;
             margin-bottom: 0;
+            font-weight: 300;
+            margin-left: 2rem;
+
+            span{
+                font-size: 2rem;
+                margin-left: -1rem;
+            }
         }
 
         &__icon{
@@ -102,6 +111,24 @@ body{
 
     }
 }
+
+// .weather--active{
+//     width:100%;
+//     height: 30rem;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+
+//     &__card--active{
+//         background-color: white;
+//         width: 30rem;
+//         height:25rem;
+//         border-radius: .6rem;
+//         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+//         opacity:65%;
+//     }
+
+// }
 
 .week{
     background-color: white;
