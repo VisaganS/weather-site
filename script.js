@@ -12,7 +12,6 @@ let wind;
 let weatherStatus;
 
 
-
 //43.6534817
 //-79.3839347
 
@@ -27,7 +26,6 @@ geoData.then(result => {
   const mainData = axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}${apiKey}${units}`);
   mainData.then(result => {
     console.log(result.data);
-
     
 
   }).catch(error => {
