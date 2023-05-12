@@ -8,22 +8,25 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <script src="script.js" defer></script>
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="./styles/index.css">
   <title>Weather Site</title>
 </head>
 
 <body>
   <header>
-    <nav class="dropdown">
-      <button class="dropdown__button">
-        <h1>New York</h1><i class="bi bi-arrow-down-circle-fill"></i>
-      </button>
-      <div class="dropdown__content">
-        <a href="#">Toronto</a>
-        <a href="#">London</a>
-        <a href="#">Florida</a>
+    <div id="dropdown" class="dropdown show">
+      <a id="current-city" class="btn bg-light text-dark dropdown-toggle dropdown__button" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        New York
+      </a>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a id="toronto" class="dropdown-item" href="#">Toronto</a>
+        <a id="london" class="dropdown-item" href="#">London</a>
+        <a id="florida" class="dropdown-item" href="#">Florida</a>
+        <a id="york" class="dropdown-item" href="#">New York</a>
+
       </div>
-    </nav>
+    </div>
   </header>
   <main>
     <section class="weather">
@@ -36,11 +39,11 @@
         <div class="card-sec">
           <article class="card-sec__feels">
             <h2 class="card-sec__head">Feels</h2>
-            <p class="card-sec__temp">22°</p>
+            <p class="card-sec__temp" id="feels-like">22°</p>
           </article>
           <article class="card-sec__wind">
             <h2 class="card-sec__head">Wind</h2>
-            <p class="card-sec__temp">10 K/M</p>
+            <p class="card-sec__temp" id="wind">10 K/M</p>
           </article>
         </div>
       </div>
@@ -77,6 +80,9 @@
     </section>
   </main>
 
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>

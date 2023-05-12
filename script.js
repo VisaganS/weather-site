@@ -1,9 +1,102 @@
-const apiKey = '8a16feabf21a43341c628d4b6b348f1a';
-let city = "Toronto";
-const myData = axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=Toronto,ON,CA&units=metric&limit=5&appid=${apiKey}`);
-myData.then(result => {
-  console.log(result.data);
-})
+const apiKey = '&appid=28e9edd8d1cede1c14b31dea008f36f7';
+const units = '&units=metric';
+let city = "Mississauga,";
+let state = 'ON,';
+let countryCode = 'CA';
+let lat = 40.7128;
+let lon = 74.0060;
+let temp;
+let feelsLike;
+let wind;
+let weatherStatus;
+let weatherIcon;
+
+const body = document.querySelector("body");
+console.log(body.style.background)
+
+function makeRequest(lat, lon) {
+
+    
+    console.log(lat, lon);
+  
+    const mainData = axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}${apiKey}${units}`);
+    mainData.then(result => {
+      console.log(result.data);   
+      
+      temp = result.data.main.temp;
+      feelsLike = result.data.main.feels_like;
+      wind = result.data.wind.speed * 3.6;
+      weatherStatus = result.data.weather[0].main;
+      weatherIcon = result.data.weather[0].icon;
+
+      const sunrise = new Date((result.data.sys.sunrise + result.data.timezone) * 1000)
+      console.log(sunrise)
+  
+      const weatherCard = document.querySelector(".card__temp");
+      weatherCard.innerText = `${Math.trunc(temp)} °C`;
+      
+      const cardIcon = document.querySelector(".card__icon");
+      cardIcon.src = `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
+  
+      const cardStatus = document.querySelector(".card__status");
+      cardStatus.innerText = weatherStatus;
+  
+      const cardFeelsLike = document.querySelector("#feels-like");
+      cardFeelsLike.innerText = `${Math.trunc(feelsLike)} °C`;
+  
+      const cardWind = document.querySelector("#wind");
+      cardWind.innerText = `${Math.round(wind)} km/h`;
+  
+  
+    }).catch(error => {
+      console.error(error);
+    });
+    
+    const fiveDayData = axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}${apiKey}`);
+    fiveDayData.then(result =>{
+      console.log(result.data);
+    })
+  
+ 
+}
+
+makeRequest(lat, lon);
+
+
+const dropdown = document.querySelector("#dropdown");
+let activeDropdown = document.querySelector("#current-city");
+
+const toronto = document.querySelector("#toronto");
+const london = document.querySelector("#london");
+const florida = document.querySelector("#florida");
+const york = document.querySelector("#york")
+
+
+
+toronto.addEventListener("click", (e) => {
+    return (activeDropdown.innerText = e.target.innerText,
+    makeRequest(43.6532, 79.3832)
+    )
+    
+}
+  );
+london.addEventListener("click", (e) => {
+  return (activeDropdown.innerText = e.target.innerText,
+    makeRequest(51.5072, 0.1276)
+    )
+});
+florida.addEventListener("click", (e) => {
+   return (activeDropdown.innerText = e.target.innerText,
+  makeRequest(25.4479, 80.4792))
+  
+
+});
+york.addEventListener("click", (e) => {
+  return (activeDropdown.innerText = e.target.innerText,
+  makeRequest(40.7128, 74.0060))
+  
+});
+
 
 
 // const jsObj = {name: "Austin", place: "Brazil"};
