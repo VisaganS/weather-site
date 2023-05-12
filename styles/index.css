@@ -17,6 +17,7 @@ body {
   position: relative;
   display: inline-block;
   padding: 0.5rem;
+  font-weight: 300;
 }
 .dropdown__button {
   width: 15.625rem;
@@ -59,6 +60,12 @@ body {
   font-size: 5rem;
   margin-top: 2rem;
   margin-bottom: 0;
+  font-weight: 300;
+  margin-left: 2rem;
+}
+.weather .card__temp span {
+  font-size: 2rem;
+  margin-left: -1rem;
 }
 .weather .card__icon {
   margin: -1rem auto 0 auto;

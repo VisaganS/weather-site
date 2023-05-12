@@ -46,18 +46,6 @@ geoData.then(result => {
     console.log(result.data);
   })
 
-}).catch(error => {
-  console.error(error);
-});
-
-
-//poke api
-// const mainData = axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}${apiKey}${units}`);
-// mainData.then(result => {
-//   console.log(result.data);
-// }) .catch (error => {
-//   console.error(error);
-// });
 
 // const jsObj = {name: "Austin", place: "Brazil"};
 
