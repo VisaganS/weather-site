@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,22 +10,72 @@
   <link rel="stylesheet" href="./styles/index.css">
   <title>Weather Site</title>
 </head>
+
 <body>
   <header>
     <nav class="dropdown">
-      <button class="dropdown__button"><h1>New York</h1><img class="dropdown__arrow" src="./assets/icons/arrow-down.jpg" alt="arrow-down"/></button>
-        <div class ="dropdown__content">
-          <a href = "#">Toronto</a>
-          <a href = "#">London</a>
-          <a href = "#">Florida</a>
-        </div>
+      <button class="dropdown__button">
+        <h1>New York</h1><img class="dropdown__arrow" src="./assets/icons/arrow-down.jpg" alt="arrow-down" />
+      </button>
+      <div class="dropdown__content">
+        <a href="#">Toronto</a>
+        <a href="#">London</a>
+        <a href="#">Florida</a>
+      </div>
     </nav>
   </header>
   <main>
-    <div class="weather">
-      <div class="weather__card"></div>
-    </div>
+    <section class="weather">
+      <div class="weather__card">
+        <div class="card">
+          <h1 class="card__temp">20</h1> <!-- ° -->
+          <img class="card__icon" src="assets/icons/01d@2x.png" />
+          <h2 class="card__status">Sunny</h2>
+        </div>
+        <div class="card-sec">
+          <article class="card-sec__feels">
+            <h2 class="card-sec__head">Feels</h2>
+            <p class="card-sec__temp">22°</p>
+          </article>
+          <article class="card-sec__wind">
+            <h2 class="card-sec__head">Wind</h2>
+            <p class="card-sec__temp">10 K/M</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="week">
+
+      <div class="week-day">
+        <h2 class="week-day__head">MON</h2>
+        <img class="week-day__icon" src="./assets/icons/01d@2x.png" alt="sunny">
+        <p class="week-day__temp">21°</p>
+      </div>
+      <div class="week-day">
+        <h2 class="week-day__head">TUE</h2>
+        <img class="week-day__icon" src="./assets/icons/01d@2x.png" alt="sunny">
+        <p class="week-day__temp">21°</p>
+      </div>
+      <div class="week-day">
+        <h2 class="week-day__head">WED</h2>
+        <img class="week-day__icon" src="./assets/icons/01d@2x.png" alt="sunny">
+        <p class="week-day__temp">21°</p>
+      </div>
+      <div class="week-day">
+        <h2 class="week-day__head">THU</h2>
+        <img class="week-day__icon" src="./assets/icons/01d@2x.png" alt="sunny">
+        <p class="week-day__temp">21°</p>
+      </div>
+      <div class="week-day">
+        <h2 class="week-day__head">FRI</h2>
+        <img class="week-day__icon" src="./assets/icons/01d@2x.png" alt="sunny">
+        <p class="week-day__temp">21°</p>
+      </div>
+      
+    </section>
   </main>
 
 </body>
+
 </html>
