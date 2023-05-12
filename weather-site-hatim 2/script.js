@@ -65,7 +65,9 @@ geoData.then(result => {
     wedImg = result.data.list[10].weather[0].icon;
     thuImg = result.data.list[17].weather[0].icon;
     friImg = result.data.list[25].weather[0].icon;
-  })
+  }).catch(error => {
+    console.error(error);
+  });
 
 }).catch(error => {
   console.error(error);
