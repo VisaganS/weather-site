@@ -37,6 +37,16 @@ geoData.then(result => {
     const cardIcon = document.querySelector(".card__icon");
     cardIcon.src = `https://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
 
+    const cardStatus = document.querySelector(".card__status");
+    cardStatus.innerText = weatherStatus;
+
+    const cardFeelsLike = document.querySelector("#feels-like");
+    cardFeelsLike.innerText = `${Math.trunc(feelsLike)} °C`;
+
+    const cardWind = document.querySelector("#wind");
+    cardWind.innerText = `${Math.round(wind)} km/h`;
+
+
   }).catch(error => {
     console.error(error);
   });
@@ -45,6 +55,11 @@ geoData.then(result => {
   fiveDayData.then(result =>{
     console.log(result.data);
   })
+
+}).catch(error => {
+  console.error(error);
+});
+
 
 
 // const jsObj = {name: "Austin", place: "Brazil"};
