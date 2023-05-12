@@ -16,6 +16,11 @@ let tuesdayTemp;
 let wednesdayTemp;
 let thursdayTemp;
 let fridayTemp;
+let monImg;
+let tueImg;
+let wedImg;
+let thuImg;
+let friImg;
 
 //43.6534817
 //-79.3839347
@@ -46,17 +51,20 @@ geoData.then(result => {
     
     console.log(result.data)
 
-    mondayTemp = result.data.list[0].main.temp;
-    console.log(mondayTemp);
-    tuesdayTemp = result.data.list[5].main.temp;
-    console.log(tuesdayTemp);
-    wednesdayTemp = result.data.list[10].main.temp;
-    console.log(wednesdayTemp);
-    thursdayTemp = result.data.list[17].main.temp;
-    console.log(thursdayTemp);
-    fridayTemp = result.data.list[25].main.temp;
-    console.log(fridayTemp);
 
+    //get each day's temp
+    mondayTemp = result.data.list[0].main.temp;
+    tuesdayTemp = result.data.list[5].main.temp;
+    wednesdayTemp = result.data.list[10].main.temp;
+    thursdayTemp = result.data.list[17].main.temp;
+    fridayTemp = result.data.list[25].main.temp;
+
+    //get each day's image code
+    monImg = result.data.list[0].weather[0].icon;
+    tueImg = result.data.list[5].weather[0].icon;
+    wedImg = result.data.list[10].weather[0].icon;
+    thuImg = result.data.list[17].weather[0].icon;
+    friImg = result.data.list[25].weather[0].icon;
   })
 
 }).catch(error => {
