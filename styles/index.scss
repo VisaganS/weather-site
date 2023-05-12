@@ -4,16 +4,47 @@
     padding: 0;
 }
 
+body{
+    background-image: url(../assets/images/sunrise.jpg);
+    background-position: center;
+    background-repeat: no-repeat;
+    height:100vh;
+    background-size: cover;
+}
+
 .dropdown{
     position: relative;
     display: inline-block;
+    padding: 0.5rem;
     &__button{
-        padding:1rem 3rem;
-        font-size: 1rem;
-        margin: 0.5rem;
+        width: 15.625rem;
+        padding: 0.5rem;
+        font-size: 1.5rem;
+        opacity: 75%;
+        border-radius: .625rem;
+        display:flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+    &__arrow{
+        width: 3.125rem;
     }
     &__content{
         display:none;
     }
 }
 
+.weather{
+    width:100%;
+    height: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    &__card{
+        background-color: white;
+        width: 20rem;
+        height:25rem;
+        border-radius: .3125rem;
+        opacity:65%;
+    }
+}
