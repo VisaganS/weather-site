@@ -10,7 +10,7 @@ let feelsLike;
 let cityLocation;
 let wind;
 let weatherStatus;
-
+let weatherIcon;
 
 //43.6534817
 //-79.3839347
@@ -20,35 +20,38 @@ geoData.then(result => {
 
   lat = result.data[0].lat;
   lon = result.data[0].lon;
-
-  console.log(lat, lon);
+  //console.log(lat, lon);
 
   const mainData = axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}${apiKey}${units}`);
   mainData.then(result => {
-    console.log(result.data);
-    
+    // console.log(result.data);
+    cityLocation = result.data.name;
+    feelsLike = result.data.main.feels_like;
+    wind = result.data.wind.speed * 3.6;
+    weatherStatus = result.data.weather[0].main;
+    weatherIcon = result.data.weather[0].icon;
+    // console.log(weatherIcon);
 
   }).catch(error => {
     console.error(error);
   });
+  
+  const fiveDayData = axios.get(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}${apiKey}`);
+  fiveDayData.then(result =>{
+    console.log(result.data);
+  })
 
 }).catch(error => {
   console.error(error);
 });
 
+//poke api
 // const mainData = axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}${apiKey}${units}`);
 // mainData.then(result => {
 //   console.log(result.data);
 // }) .catch (error => {
 //   console.error(error);
 // });
-
-
-
-
-
-
-
 
 // const jsObj = {name: "Austin", place: "Brazil"};
 
