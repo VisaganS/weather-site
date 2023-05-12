@@ -1,3 +1,11 @@
+const apiKey = '8a16feabf21a43341c628d4b6b348f1a';
+let city = "Toronto";
+const myData = axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=Toronto,ON,CA&units=metric&limit=5&appid=${apiKey}`);
+myData.then(result => {
+  console.log(result.data);
+})
+
+
 // const jsObj = {name: "Austin", place: "Brazil"};
 
 // const jsonString = JSON.stringify(jsObj);
@@ -45,54 +53,54 @@
   //   .then(response => console.log(response.data))
   //   .catch(error => console.log(error));
 
-  const pokeApiUrl = 'https://pokeapi.co/api/v2';
+  // const pokeApiUrl = 'https://pokeapi.co/api/v2';
 
-  const pokeListContainer = document.querySelector(".pokemonlist-container");
-  const pokeContainer = document.querySelector(".pokemon-container");
+  // const pokeListContainer = document.querySelector(".pokemonlist-container");
+  // const pokeContainer = document.querySelector(".pokemon-container");
 
-  const addOption = (pokeArray) => {
-    pokeArray.forEach((pokemon) => {
-      const listItem = document.createElement('option');
-      listItem.innerText = pokemon.name
-      listItem.value = pokemon.name
-      pokeListContainer.append(listItem)
-    })
-  }
+  // const addOption = (pokeArray) => {
+  //   pokeArray.forEach((pokemon) => {
+  //     const listItem = document.createElement('option');
+  //     listItem.innerText = pokemon.name
+  //     listItem.value = pokemon.name
+  //     pokeListContainer.append(listItem)
+  //   })
+  // }
 
-  const addPic = (url) => {
-    axios.get(url)
-    .then((response) => {
-      pokeContainer.innerHTML = '';
-      const img = document.createElement("img");
-      img.setAttribute('src', response.data.sprites.front_default);
-      pokeContainer.appendChild(img);
-    })
-  }
+  // const addPic = (url) => {
+  //   axios.get(url)
+  //   .then((response) => {
+  //     pokeContainer.innerHTML = '';
+  //     const img = document.createElement("img");
+  //     img.setAttribute('src', response.data.sprites.front_default);
+  //     pokeContainer.appendChild(img);
+  //   })
+  // }
 
-  axios.get(pokeApiUrl + "/pokemon")
-    .then(response => {
-      addOption(response.data.results);
-      // response.data.results.forEach((pokemon) => {
-      //   const listItem = document.createElement('option');
-      //   listItem.innerText = pokemon.name
-      //   listItem.value = pokemon.name
-      //   pokeListContainer.append(listItem)
-      // })
-      return response.data.results[0];
-      // THIS GETS RETURNED TO THE NEXT CHAINED .THEN
-    })
-    .then((pokemon) => {
-      console.log(pokemon.url)
-      addPic(pokemon.url)
-    });
+  // axios.get(pokeApiUrl + "/pokemon")
+  //   .then(response => {
+  //     addOption(response.data.results);
+  //     // response.data.results.forEach((pokemon) => {
+  //     //   const listItem = document.createElement('option');
+  //     //   listItem.innerText = pokemon.name
+  //     //   listItem.value = pokemon.name
+  //     //   pokeListContainer.append(listItem)
+  //     // })
+  //     return response.data.results[0];
+  //     // THIS GETS RETURNED TO THE NEXT CHAINED .THEN
+  //   })
+  //   .then((pokemon) => {
+  //     console.log(pokemon.url)
+  //     addPic(pokemon.url)
+  //   });
 
-    pokeListContainer.addEventListener("change", (event) => {
-      addPic(pokeApiUrl + '/pokemon/' + event.target.value )
-      //axios.get(pokeApiUrl + '/pokemon/' + event.target.value )
-      // .then((response) => {
-      //   pokeContainer.innerHTML = '';
-      //   const img = document.createElement("img");
-      //   img.setAttribute('src', response.data.sprites.front_default);
-      //   pokeContainer.appendChild(img);
-      // })
-    })
+  //   pokeListContainer.addEventListener("change", (event) => {
+  //     addPic(pokeApiUrl + '/pokemon/' + event.target.value )
+  //     //axios.get(pokeApiUrl + '/pokemon/' + event.target.value )
+  //     // .then((response) => {
+  //     //   pokeContainer.innerHTML = '';
+  //     //   const img = document.createElement("img");
+  //     //   img.setAttribute('src', response.data.sprites.front_default);
+  //     //   pokeContainer.appendChild(img);
+  //     // })
+  //   })
